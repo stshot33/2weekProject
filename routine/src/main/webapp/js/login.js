@@ -1,4 +1,6 @@
-Kakao.init('15d3bb1344db4e3cf56966e2788148b8');
+var jskey = "15d3bb1344db4e3cf56966e2788148b8";
+
+Kakao.init(jskey);
 console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
 function loginWithKakao() {
@@ -8,6 +10,11 @@ function loginWithKakao() {
           url: '/v2/user/me',
           success: function (response) {
           	console.log(response);
+          	var nick = response.kakao_account.profile.nickname;
+          	var id = response.id;
+          	
+          	console.log(id);
+          	location.href = "signIn?nick="+nick + "&id=" + id;
           },
           fail: function (error) {
             console.log(error)
@@ -39,3 +46,18 @@ function loginWithKakao() {
     const parts = value.split("; " + name + "=");
     if (parts.length === 2) return parts.pop().split(";").shift();
   }
+  
+  function kakaoLogout() {
+  	Kakao.isInitialized();
+  
+  	console.log(Kakao.Auth.getAccessToken());
+  
+    if (!Kakao.Auth.getAccessToken()) {
+        alert('Not logged in.');
+        location.href = "logout";
+    }
+    Kakao.Auth.logout(function() {
+        alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
+        location.href = "logout";
+    });
+}

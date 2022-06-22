@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="routine.fwd.service.ExMapper">
+	<select id="target" resultType="String">
+		SELECT t_name FROM target WHERE t_no = ${target}
+	</select>
+	
+	<select id="allEx" resultType="exVo">
+		SELECT * FROM exercise WHERE ex_target = ${target}
+	</select>
+</mapper>

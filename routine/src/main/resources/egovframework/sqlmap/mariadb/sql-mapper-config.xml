@@ -4,5 +4,6 @@
 <configuration>
     <typeAliases>
 		<typeAlias alias="testVo" type="routine.fwd.vo.TestVo"/>
+		<typeAlias alias="exVo" type="routine.fwd.vo.ExVo"/>
     </typeAliases>
 </configuration>
