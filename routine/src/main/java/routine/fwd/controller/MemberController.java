@@ -3,27 +3,46 @@ package routine.fwd.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import routine.fwd.service.MemberService;
+import routine.fwd.vo.MemberVo;
+
 @Controller
 public class MemberController {
 	
-	@RequestMapping(value="signIn", method = RequestMethod.GET)
-	public String signIn(HttpServletRequest req) {
-		HttpSession session = req.getSession();
-		
-		session.setAttribute("nick", req.getParameter("nick"));
-		session.setAttribute("id", req.getParameter("id"));
-		
-		return "redirect:main";
-	}
+	@Autowired
+	MemberService memberService;
 	
-	@RequestMapping(value="signIn", method = RequestMethod.POST)
-	public String kakaoSignIn() {
+	@RequestMapping(value="signIn", method = RequestMethod.GET)
+	public String signIn(HttpServletRequest req) throws Exception{
+		HttpSession session = req.getSession();
+		String nick = req.getParameter("nick");
+		String id = req.getParameter("id");
+		
+		session.setAttribute("nick", nick);
+		session.setAttribute("id", id);
+		
+		kakaoSignIn(id, nick);
 		
 		return "main";
+	}
+	
+	public void kakaoSignIn(String id, String nickname) {
+		MemberVo memberVo = new MemberVo();
+		
+		memberVo.setM_id(Long.parseLong(id));
+		memberVo.setM_nickname(nickname);
+		
+		try {
+			memberService.saveInfo(memberVo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@RequestMapping(value="logout", method = RequestMethod.GET)

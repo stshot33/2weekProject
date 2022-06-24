@@ -4,3 +4,93 @@
 	box-sizing: border-box;
 	font-size: 10px;
 }
+
+.main_wrap {
+	background-color: #222;
+	padding: 20rem 0;
+}
+
+.total_wrap {
+	display: flex;
+}
+
+.nav_wrap, .sub_wrap {
+	background-color: #fff;
+	min-width: 60rem;
+    min-height: 50rem;
+}
+
+.nav_wrap {
+    display: flex;
+}
+
+.nav_bar {
+	background-color: #222;
+    color: #fff;
+    margin: 0 auto;
+    height: fit-content;
+    border-radius: 15%;
+}
+
+.nav_list {
+	font-size: 2rem;
+	padding: 1rem;
+	border: 1px solid #fff;
+	text-align: center;
+}
+
+.scroll_move {
+	color: #fff;
+    font-size: 2rem;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.info_wrap {
+	width: 100%;
+	padding: 1rem;
+}
+
+.target_wrap {
+	color: #fff;
+	margin: 1rem 0 2rem 5rem;
+}
+
+.target_wrap>h1 {
+	font-size: 4rem;
+	font-weight: 700;
+}
+
+.explan_wrap, .ex_explan, iframe {
+	margin-bottom: 5rem;
+}
+
+.info_explanation, .explan_wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.explan_wrap {
+	align-items: center;
+	text-align: center;
+}
+
+.ex_name, .ex_explan {
+	font-size: 2.5rem;
+	color: #fff;
+}
+
+.ex_name {
+	margin-bottom: 3rem;
+}
+
+.ex_img {
+	margin: 0 auto;
+	width: 50rem;
+    height: 50rem;
+}
+
+.ex_explan {
+	text-align: left;
+	margin-top: 3rem;
+}

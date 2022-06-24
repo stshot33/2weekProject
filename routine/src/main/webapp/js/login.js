@@ -57,7 +57,6 @@ function loginWithKakao() {
         location.href = "logout";
     }
     Kakao.Auth.logout(function() {
-        alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
         location.href = "logout";
     });
 }
