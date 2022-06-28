@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="routine.fwd.service.BoardMapper">
+	<resultMap type="routine.fwd.vo.ExBoardVo" id="exBoardList">
+		
+	</resultMap>
+
+	<select id="boardlist" resultMap="exBoardList">
+		SELECT * FROM exboard
+	</select>
+
+	<insert id="exboardInsert">
+		INSERT INTO exboard(exb_no, exm_id, exm_name, exb_title, exb_text) 
+					VALUES ((SELECT IFNULL(MAX(exb_no) + 1, 1) FROM exboard CT), #{exm_id}, #{exm_name}, #{exb_title}, #{exb_text})
+	</insert>
+</mapper>

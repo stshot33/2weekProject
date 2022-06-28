@@ -28,7 +28,7 @@ public class MemberController {
 		
 		kakaoSignIn(id, nick);
 		
-		return "main";
+		return "redirect:main";
 	}
 	
 	public void kakaoSignIn(String id, String nickname) {

@@ -6,5 +6,6 @@
 		<typeAlias alias="testVo" type="routine.fwd.vo.TestVo"/>
 		<typeAlias alias="exVo" type="routine.fwd.vo.ExVo"/>
 		<typeAlias alias="memberVo" type="routine.fwd.vo.MemberVo"/>
+		<typeAlias alias="exBoardVo" type="routine.fwd.vo.ExBoardVo"/>
     </typeAliases>
 </configuration>

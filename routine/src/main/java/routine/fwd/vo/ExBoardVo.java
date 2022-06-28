@@ -5,11 +5,11 @@ import java.time.LocalDateTime;
 public class ExBoardVo {
 
 	private int exb_no;
-	private int exm_name;
-	private String m_name;
+	private long exm_id;
+	private String exm_name;
 	private String exb_title;
 	private String exb_text;
-	private LocalDateTime exb_time;
+	private String exb_time;
 	private int exb_look;
 
 	public int getExb_no() {
@@ -20,20 +20,20 @@ public class ExBoardVo {
 		this.exb_no = exb_no;
 	}
 
-	public int getExm_name() {
+	public long getExm_id() {
+		return exm_id;
+	}
+
+	public void setExm_id(long exm_id) {
+		this.exm_id = exm_id;
+	}
+
+	public String getExm_name() {
 		return exm_name;
 	}
 
-	public void setExm_name(int exm_name) {
+	public void setExm_name(String exm_name) {
 		this.exm_name = exm_name;
-	}
-
-	public String getM_name() {
-		return m_name;
-	}
-
-	public void setM_name(String m_name) {
-		this.m_name = m_name;
 	}
 
 	public String getExb_title() {
@@ -52,11 +52,11 @@ public class ExBoardVo {
 		this.exb_text = exb_text;
 	}
 
-	public LocalDateTime getExb_time() {
+	public String getExb_time() {
 		return exb_time;
 	}
 
-	public void setExb_time(LocalDateTime exb_time) {
+	public void setExb_time(String exb_time) {
 		this.exb_time = exb_time;
 	}
 

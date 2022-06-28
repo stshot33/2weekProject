@@ -66,7 +66,7 @@
 						</ul>
 						<ul class="community_list_wrap">
 							<li class="community_li">
-								<a class="community_a">난 이렇게 운동해</a>
+								<a class="community_a" href="exBoard">난 이렇게 운동해</a>
 							</li>
 						</ul>
 					</div>
