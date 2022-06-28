@@ -4,5 +4,5 @@ import routine.fwd.vo.MemberVo;
 
 public interface DietMapper {
 	
-	public MemberVo calculator(MemberVo memberVo) throws Exception;
+	public void calculator(MemberVo memberVo) throws Exception;
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import routine.fwd.service.DietService;
 import routine.fwd.vo.MemberVo;
+import routine.fwd.vo.RoutineVo;
 
 @Controller
 public class DietController {
@@ -46,5 +47,23 @@ public class DietController {
 		model.addAttribute("calorie", dietService.calculator(memberVo));
 		
 		return "calculator";
+	}
+	
+	@RequestMapping(value="routineProgram", method = RequestMethod.GET)
+	public String routineProgram() throws Exception {
+		return "routineProgram";
+	}
+	
+	@RequestMapping(value="routineProgram", method = RequestMethod.POST)
+	public String routineProgram(RoutineVo routineVo, Model model) {
+		
+		try {
+			model.addAttribute("division", dietService.routineDivision(routineVo));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return "myRoutine";
 	}
 }

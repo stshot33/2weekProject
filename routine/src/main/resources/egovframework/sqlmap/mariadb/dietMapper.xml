@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="routine.fwd.service.DietMapper">
+	<update id="calculator">
+		UPDATE member SET m_weight = #{m_weight}, m_height = #{m_height}, m_calorie = #{m_calorie}, m_activity = #{m_activity} WHERE m_id = #{m_id}
+	</update>
+</mapper>

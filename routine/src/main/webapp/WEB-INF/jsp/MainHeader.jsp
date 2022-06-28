@@ -5,15 +5,18 @@
 	String sign = "";
 	String diet = "";
 	String calculator = "";
+	String routine = "";
 	
 	if(nick!=null) {
 		sign = "<li class=\"navi_list\"><a id=\"custom-login-btn\" href=\"javascript:kakaoLogout()\">" + nick + "</a></li>";
 		diet = "<a class=\"diet_a\" href=\"diet\">식단 프로그램</a>";
 		calculator = "<a class=\"diet_a\" href=\"calorie\">칼로리 계산기</a>";
+		routine = "<a class=\"diet_a\" href=\"routineProgram\">루틴 프로그램</a>";
 	}else {
 		sign = "<li class=\"navi_list\"><a id=\"custom-login-btn\" href=\"javascript:loginWithKakao()\">Sign In</a></li>";
 		diet = "<a class=\"diet_a\" href=\"javascript:loginWithKakao()\">식단 프로그램</a>";
 		calculator = "<a class=\"diet_a\" href=\"javascript:loginWithKakao()\">칼로리 계산기</a>";
+		routine = "<a class=\"diet_a\" href=\"javascript:loginWithKakao()\">루틴 프로그램</a>";
 	}
 %>
 
@@ -35,7 +38,7 @@
 					</div>
 				</li>
 				<li class="navi_list diet_navi">
-					<a>식단</a>
+					<a>프로그램</a>
 					<div class="diet_list">
 						<ul class="diet_list_wrap">
 							<li class="diet_li">
@@ -46,6 +49,9 @@
 							</li>
 							<li class="diet_li">
 								<%=calculator %>
+							</li>
+							<li class="diet_li">
+								<%=routine %>
 							</li>
 						</ul>
 					</div>

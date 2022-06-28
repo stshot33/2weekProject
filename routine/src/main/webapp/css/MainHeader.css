@@ -9,6 +9,10 @@ ul {
 	list-style: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 .header_wrap {
 	display: flex;
     flex-direction: column;
@@ -76,7 +80,7 @@ ul {
 }
 
 .diet_list {
-	transform: translate(0px, 108px);
+	transform: translate(0px, 128px);
 }
 
 .community_list {
@@ -101,7 +105,7 @@ ul {
     cursor: pointer;
 }
 
-.community_li {
+.diet_li, .community_li {
 	width: 24rem;
 }
 
