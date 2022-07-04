@@ -8,9 +8,9 @@ public class MemberVo {
 	private float m_calorie;
 	private int m_activity;
 	private int m_goal;
-	private int tan;
-	private int dan;
-	private int zi;
+	private int m_tan;
+	private int m_dan;
+	private int m_zi;
 	private int m_sex;
 
 	public long getM_id() {
@@ -69,28 +69,28 @@ public class MemberVo {
 		this.m_goal = m_goal;
 	}
 
-	public int getTan() {
-		return tan;
+	public int getM_tan() {
+		return m_tan;
 	}
 
-	public void setTan(int tan) {
-		this.tan = tan;
+	public void setM_tan(int m_tan) {
+		this.m_tan = m_tan;
 	}
 
-	public int getDan() {
-		return dan;
+	public int getM_dan() {
+		return m_dan;
 	}
 
-	public void setDan(int dan) {
-		this.dan = dan;
+	public void setM_dan(int m_dan) {
+		this.m_dan = m_dan;
 	}
 
-	public int getZi() {
-		return zi;
+	public int getM_zi() {
+		return m_zi;
 	}
 
-	public void setZi(int zi) {
-		this.zi = zi;
+	public void setM_zi(int m_zi) {
+		this.m_zi = m_zi;
 	}
 
 	public int getM_sex() {

@@ -1,7 +1,5 @@
 package routine.fwd.vo;
 
-import java.time.LocalDateTime;
-
 public class ExBoardVo {
 
 	private int exb_no;
@@ -11,6 +9,7 @@ public class ExBoardVo {
 	private String exb_text;
 	private String exb_time;
 	private int exb_look;
+	private int b_diff;
 
 	public int getExb_no() {
 		return exb_no;
@@ -66,6 +65,14 @@ public class ExBoardVo {
 
 	public void setExb_look(int exb_look) {
 		this.exb_look = exb_look;
+	}
+
+	public int getB_diff() {
+		return b_diff;
+	}
+
+	public void setB_diff(int b_diff) {
+		this.b_diff = b_diff;
 	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import routine.fwd.service.DietMapper;
 import routine.fwd.service.ExMapper;
 import routine.fwd.vo.ExVo;
+import routine.fwd.vo.FoodVo;
 import routine.fwd.vo.MemberVo;
 import routine.fwd.vo.RoutineVo;
 
@@ -41,9 +42,9 @@ public class DietDaoImpl implements DietDao{
 			int zi = (int)(calorie * 0.2);
 			int tan = (int)(calorie - (dan+zi));
 			
-			memberVo.setTan(tan);
-			memberVo.setDan(dan);
-			memberVo.setZi(zi);
+			memberVo.setM_tan(tan);
+			memberVo.setM_dan(dan);
+			memberVo.setM_zi(zi);
 			memberVo.setM_activity(activity);
 			memberVo.setM_calorie(calorie);
 			
@@ -182,4 +183,83 @@ public class DietDaoImpl implements DietDao{
         
         return n;
     }
+
+
+	@Override
+	public List<FoodVo> diet(MemberVo memberVo) {
+		DietMapper mapper = sqlSession.getMapper(DietMapper.class);
+		List<FoodVo> foodList = new ArrayList<>();
+		List<Integer> kcal = new ArrayList<>();
+		FoodVo foodVo = new FoodVo();
+		int nth = 0;
+		
+		// 탄수화물 계산
+		foodVo = mapper.mainTan();
+
+		nth = dietCalorie(foodVo, memberVo, 1, kcal);
+		kcal = tkcalMinus(nth, foodVo, memberVo);
+		
+		foodVo.setF_once(100 * nth);
+		
+		foodList.add(0, foodVo);
+		
+		// 단백질 계산
+		for(int i=1; i<3; i++) {
+			if(i==1) foodVo = mapper.mainDan();
+			if(i==2) foodVo = mapper.mainZi();
+			
+			nth = dietCalorie(foodVo, memberVo, i+1, kcal);
+			kcal = dzkcalMinus(nth, foodVo, kcal);
+			
+			if(foodVo.getF_name().equals("아몬드")) {
+				foodVo.setF_once(30 * nth);
+			}else {
+				foodVo.setF_once(100 * nth);
+			}
+			
+			foodList.add(i, foodVo);
+		}
+		
+		return foodList;
+	}
+	
+	// 탄단지 얼마나 먹어야 하는지 계산
+	private int dietCalorie(FoodVo foodVo, MemberVo memberVo, int tdz, List<Integer> totalKcal) {
+		int kcal = 0;
+		int total = 0;
+		
+		if(tdz == 1) {
+			kcal = foodVo.getF_tan();
+			total = memberVo.getM_tan()/4;
+		}else if(tdz == 2) {
+			kcal = foodVo.getF_dan();
+			total = totalKcal.get(2);
+		}else if(tdz == 3){
+			kcal = foodVo.getF_zi();
+			total = totalKcal.get(3);
+		}
+		
+		return total/kcal;
+	}
+	
+	// 탄수화물 칼로리 계산
+	private List<Integer> tkcalMinus(int nth, FoodVo foodVo, MemberVo memberVo) {
+		List<Integer> kcal = new ArrayList<>();
+		kcal.add((int) (memberVo.getM_calorie() - (foodVo.getF_once()*nth)));
+		kcal.add((int) ((memberVo.getM_tan()/4) - (foodVo.getF_tan()*nth)));
+		kcal.add((int) ((memberVo.getM_dan()/4) - (foodVo.getF_dan()*nth)));
+		kcal.add((int) ((memberVo.getM_zi()/9) - (foodVo.getF_zi()*nth)));
+		
+		return kcal;
+	}
+	
+	// 단백질/지방 칼로리 계산
+	private List<Integer> dzkcalMinus(int nth, FoodVo foodVo, List<Integer> kcal) {
+		kcal.set(0,(int) (kcal.get(0) - (foodVo.getF_once()*nth)));
+		kcal.set(1,(int) (kcal.get(1) - (foodVo.getF_tan()*nth)));
+		kcal.set(2,(int) (kcal.get(2) - (foodVo.getF_dan()*nth)));
+		kcal.set(3,(int) (kcal.get(3) - (foodVo.getF_zi()*nth)));
+		
+		return kcal;
+	}
 }

@@ -23,12 +23,28 @@
     text-align: center;
 }
 
-.board_header {
+.board_header, .list, .board_main, .main_list {
+	border: 2px solid #222222;
+}
+
+.board_header, .board_main {
 	padding: 0.5rem 0;
 	margin-right: 3rem;
 	width: 100%;
-	border: 2px solid #222222;
     border-right: none;
+}
+
+.board_main {
+	border-right: none;
+	border-top: none;
+}
+
+.board_main, .main_first {
+	font-size: 2rem;
+}
+
+.list, .main_list {
+	border-right: 2px solid #222222;
 }
 
 .board_first {
@@ -36,6 +52,11 @@
 	font-weight: 600;
 }
 
-.list {
-	border: 2px solid #222222;
+.addBtn {
+	width: 10rem;
+    height: 6rem;
+    font-size: 2rem;
+    background-color: #222;
+    color: #ffffff;
+    border-radius: 15px;
 }

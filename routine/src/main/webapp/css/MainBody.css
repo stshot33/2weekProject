@@ -27,9 +27,12 @@ main {
     grid-template-rows: 2fr 3fr;
 }
 
+.main_slider, .commu_recent10, .commu_qna {
+	box-shadow: 1.5rem 1.5rem 0.5rem #000;
+	background-color: #222;
+}
+
 .main_slider {
-	box-shadow: 1rem 0.5rem 0.5rem gray;
-	background-color: ivory;
 	height: 30rem;
 	width: 110rem;
 	margin-bottom: 5rem;
@@ -41,11 +44,12 @@ main {
     margin: 2rem auto;
 }
 
-.commu_recent10, .commu_qna {
-	background-color: ivory;
-	width: 40rem;
-	box-shadow: 1rem 0.5rem 0.5rem gray;
+.commu_recent10, .commu_qna, .h_wrap {
 	display: flex;
+}
+
+.commu_recent10, .commu_qna {
+	width: 40rem;
 	flex-direction: column;
 }
 
@@ -63,7 +67,23 @@ main {
 
 .navi_h2 {
 	margin: 5px auto;
-    font-size: 15px;
+    font-size: 2rem;
     font-weight: 700;
-    color: lightslategrey;
+    color: #ffffff;
+}
+
+.recent_list {
+    margin: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px dashed #fff;
+}
+
+.recent_a {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.h_wrap>a {
+    font-size: 2rem;
+    padding: 4px;
 }

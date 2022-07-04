@@ -10,6 +10,7 @@ import routine.fwd.dao.MemberDao;
 import routine.fwd.vo.ExVo;
 import routine.fwd.vo.MemberVo;
 import routine.fwd.vo.RoutineVo;
+import routine.fwd.vo.FoodVo;
 
 @Service
 public class DietServiceImpl implements DietService{
@@ -37,6 +38,21 @@ public class DietServiceImpl implements DietService{
 	@Override
 	public List<ExVo> routineDivision(RoutineVo routineVo) throws Exception {
 			return dietDao.routineDivision(routineVo);
+	}
+
+	@Override
+	public List<FoodVo> diet(long id) {
+		MemberVo memberVo = new MemberVo();
+		
+		try {
+			memberVo.setM_id(id);
+			
+			memberVo = memberDao.selectInfo(memberVo);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return dietDao.diet(memberVo);
 	}
 
 }

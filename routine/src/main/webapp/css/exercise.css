@@ -94,3 +94,25 @@
 	text-align: left;
 	margin-top: 3rem;
 }
+
+.sub_wrap {
+    display: flex;
+    position: relative;
+}
+
+.btn_wrap {
+	display: flex;
+    flex-direction: column;
+    margin: 5rem 15rem;
+    position: fixed;
+}
+
+.subbtn {
+	width: 10rem;
+    height: 5rem;
+    background-color: #222;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+}

@@ -11,9 +11,9 @@
 <title>Routine Routine</title>
 </head>
 <body>
-	<%@include file="MainHeader.jsp" %>
-	<%@include file="MainBody.jsp" %>
-	<%@include file="MainFooter.jsp" %>
+	<%@include file="../MainHeader.jsp" %>
+	<%@include file="../MainBody.jsp" %>
+	<%@include file="../MainFooter.jsp" %>
 	
 	<script src = "https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script src=https://code.jquery.com/jquery-3.6.0.min.js></script>

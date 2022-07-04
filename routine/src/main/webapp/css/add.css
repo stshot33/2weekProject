@@ -3,3 +3,70 @@
 	padding: 0;
 	font-size: 10px;
 }
+
+.board_main, .form_wrap, .input_wrap, .inputs {
+	display: flex;
+}
+
+.board_wrap {
+	margin: 0 auto;
+    border: 10px solid #222;
+}
+
+.form_wrap {
+	width: 96rem;
+    border: 5px solid #ffffff;
+    background-color: #222;
+    padding: 2rem;
+	flex-direction: column;
+}
+
+.board_wrap, .form_wrap {
+    border-radius: 20px;	
+}
+
+.board_title {
+	height: 8rem;
+	align-items: center;
+	border-bottom: none;
+    padding: 0 2rem;
+}
+
+.inputs {
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.input_title, .input_text, .inputs>button {
+	color: #ffffff;
+    border: 3px solid #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.input_title, .input_text {
+	width: 60rem;
+	background: #222222;
+}
+
+.input_title, .inputs>button {
+	font-size: 3rem;
+} 
+
+.input_title {
+    height: 3rem;
+}
+
+.input_text {
+    height: 60rem;
+    font-size: 1.5rem;
+}
+
+.inputs>button {
+	height: 6rem;
+    width: fit-content;
+    margin: 0 auto;
+    background: #3c3834;
+    cursor: pointer;
+}

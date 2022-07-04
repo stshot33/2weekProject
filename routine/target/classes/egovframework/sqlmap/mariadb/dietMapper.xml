@@ -2,7 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="routine.fwd.service.DietMapper">
+	<select id="mainTan" resultType="foodVo">
+		SELECT * FROM food WHERE f_tan > f_dan AND f_tan > f_zi AND f_tan > 50 ORDER BY RAND() LIMIT 1;
+	</select>
+	
+	<select id="mainDan" resultType="foodVo">
+		SELECT * FROM food WHERE f_dan > f_tan AND f_dan > f_zi AND f_dan > 10 ORDER BY RAND() LIMIT 1;
+	</select>
+	
+	<select id="mainZi" resultType="foodVo">
+		SELECT * FROM food WHERE f_zi > f_tan AND f_zi > f_dan ORDER BY RAND() LIMIT 1;
+	</select>
+
 	<update id="calculator">
-		UPDATE member SET m_weight = #{m_weight}, m_height = #{m_height}, m_calorie = #{m_calorie}, m_activity = #{m_activity} WHERE m_id = #{m_id}
+		UPDATE member SET m_weight = #{m_weight}, m_height = #{m_height}, m_calorie = #{m_calorie}, m_activity = #{m_activity}, m_tan = #{m_tan}, m_dan = #{m_dan}, m_zi = #{m_zi}
+		 WHERE m_id = #{m_id}
 	</update>
 </mapper>

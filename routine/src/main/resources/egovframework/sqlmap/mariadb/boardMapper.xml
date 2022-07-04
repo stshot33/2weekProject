@@ -5,13 +5,34 @@
 	<resultMap type="routine.fwd.vo.ExBoardVo" id="exBoardList">
 		
 	</resultMap>
-
+	
+	<select id="detail" resultType="exBoardVo">
+		SELECT * FROM board WHERE exb_no = ${no}
+	</select>
+	
 	<select id="boardlist" resultMap="exBoardList">
-		SELECT * FROM exboard
+		SELECT * FROM board WHERE b_diff = #{diff}
+	</select>
+	
+	<select id="recent" resultType="exBoardVo">
+		SELECT * FROM board WHERE b_diff = #{diff} ORDER BY exb_time DESC LIMIT 10;
+	</select>
+	
+	<select id="allAnswer" resultType="answerVo">
+		SELECT * FROM answer WHERE aexb_no = ${no} ORDER BY a_time DESC
 	</select>
 
 	<insert id="exboardInsert">
-		INSERT INTO exboard(exb_no, exm_id, exm_name, exb_title, exb_text) 
-					VALUES ((SELECT IFNULL(MAX(exb_no) + 1, 1) FROM exboard CT), #{exm_id}, #{exm_name}, #{exb_title}, #{exb_text})
+		INSERT INTO board(exb_no, exm_id, exm_name, exb_title, exb_text, b_diff) 
+					VALUES ((SELECT IFNULL(MAX(exb_no) + 1, 1) FROM board CT), #{exm_id}, #{exm_name}, #{exb_title}, #{exb_text}, #{b_diff})
 	</insert>
+	
+	<insert id="addAnswer">
+		INSERT INTO answer(aexb_no, a_text, am_name)
+					VALUES (#{aexb_no}, #{a_text}, #{am_name})
+	</insert>
+	
+	<update id="lookPlus">
+		UPDATE board SET exb_look = exb_look+1 WHERE exb_no = ${no}
+	</update>
 </mapper>

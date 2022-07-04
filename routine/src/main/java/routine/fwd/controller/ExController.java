@@ -33,6 +33,6 @@ public class ExController {
 			e.printStackTrace();
 		}
 		
-		return "exercise";
+		return "redirect:exercise";
 	}
 }

@@ -12,7 +12,6 @@
 <title>routine | ${target }</title>
 </head>
 <body>
-
 	<%@include file="MainHeader.jsp" %>
 	
 	<div class="main_wrap">
@@ -43,7 +42,17 @@
 				</div>
 			</div>
 			<div class="sub_wrap">
-			
+				<div class="btn_wrap">
+					<button type="button" onclick="top()" class="subbtn topbtn">
+						Up
+					</button>
+					<button type="button" onclick="location.href='main'" class="subbtn mainbtn">
+						Main
+					</button>
+					<button type="button" onclick="bottom()" class="subbtn bottombtn">
+						Down
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

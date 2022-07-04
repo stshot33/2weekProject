@@ -32,3 +32,15 @@ $(document).ready(function($) {
         });
 
 });
+
+$(".topbtn").on("click", function top() {
+
+	$(window).scrollTop(0);
+	
+});
+
+$(".bottombtn").on("click", function bottom() {
+	
+	$('html, body').scrollTop( $(document).height());
+	
+});

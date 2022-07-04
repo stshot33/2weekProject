@@ -27,14 +27,14 @@
 					<c:forEach items="${boardInfo }" var="info">
 						<li class="board_main">${info.exb_no }</li>
 						<li class="board_main">${info.exm_name }</li>
-						<li class="board_main"><a href="detail?no=${info.exb_no }">${info.exb_title }</a></li>
+						<li class="board_main"><a class="main_first" href="detail?no=${info.exb_no }">${info.exb_title }</a></li>
 						<li class="board_main">${info.exb_time }</li>
-						<li class="board_main">${info.exb_look }</li>
+						<li class="board_main main_list">${info.exb_look }</li>
 					</c:forEach>
 					</ul>
 				</div>
 				<div class="board_bottom">
-					<button onclick="location.href='add'">등록</button>
+					<button class="addBtn" type="button">글 작성</button>
 				</div>
 			</div>
 		</div>
@@ -46,5 +46,6 @@
 	<script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
 	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="js/MainHeader.js"></script>
+	<script type="text/javascript" src="js/board.js"></script>
 </body>
 </html>

@@ -7,5 +7,7 @@
 		<typeAlias alias="exVo" type="routine.fwd.vo.ExVo"/>
 		<typeAlias alias="memberVo" type="routine.fwd.vo.MemberVo"/>
 		<typeAlias alias="exBoardVo" type="routine.fwd.vo.ExBoardVo"/>
+		<typeAlias alias="answerVo" type="routine.fwd.vo.AnswerVo"/>
+		<typeAlias alias="foodVo" type="routine.fwd.vo.FoodVo"/>
     </typeAliases>
 </configuration>
